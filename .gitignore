@@ -6,3 +6,9 @@ __pycache__/
 geckodriver.log
 
 .idea/
+
+dist/
+
+build/
+
+start_selenium_webdriver.egg-info/
