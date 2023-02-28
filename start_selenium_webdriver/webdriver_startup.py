@@ -7,16 +7,19 @@ from subprocess import getoutput
 from pathlib import Path
 
 
-def start_web_driver(endpoint, num_sec_implicit_wait=3, gui=True, options=Options()):
+def start_web_driver(endpoint, num_sec_implicit_wait=3, gui=True, options=Options(),
+                     firefox_bin_path="C:/Program Files/Mozilla Firefox/firefox.exe"):
+
     """Starts a selenium webdriver, while taking care of dependencies.
         num_sec_implicit_wait:  How many seconds the selenium driver should wait before failing (See selenium docs.)
         gui: False tells selenium to run headless
         options: Gives the possibility to add additional parameters for the driver startup
+        firefox_bin_path: for windows finding the firefox binary path only works automatically if firefox is installed without the microsoft store, otherwise it has the binary path has to be provided
     """
 
     _linux = "Linux"
     _windows = "Windows"
-    _path_windows_mozilla_bin_location = Path("C:/Program Files/Mozilla Firefox/firefox.exe")
+    _path_windows_mozilla_bin_location = Path(firefox_bin_path)
 
     active_system = platform.system()
     options.headless = not gui
