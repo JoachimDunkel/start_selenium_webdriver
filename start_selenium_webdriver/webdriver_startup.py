@@ -37,6 +37,7 @@ def start_web_driver(endpoint, num_sec_implicit_wait=3, gui=True, options=Option
         if path.exists(default_firefox_install_location):
             options.binary_location = default_firefox_install_location
         else:
+            #TODO does not work with microsoft store firefox yet
             options.binary_location = getoutput("where firefox")
     else:
         raise ValueError("You are running on a non-supported platform.")
